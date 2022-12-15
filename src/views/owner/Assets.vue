@@ -7,10 +7,10 @@
 			</ion-toolbar>
 		</ion-header>
 		<ion-content :fullscreen="true">
-			<ion-card v-for="item in assetArr">
+			<ion-card v-for="item in assetArr" :disabled="item.status != 'BLOCKCHAIN'">
 				<ion-card-header>
-					<ion-card-subtitle>#{{ item.sno }}</ion-card-subtitle>
-					<ion-card-title >{{ item.fileName }}</ion-card-title>
+					<ion-card-subtitle>#{{ item.assetId }}</ion-card-subtitle>
+					<ion-card-title>{{ item.fileName }}</ion-card-title>
 					<ion-card-subtitle>{{ item.tags }}</ion-card-subtitle>
 				</ion-card-header>
 				<ion-card-content>
@@ -25,19 +25,13 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable */
-// import { useIonRouter } from '@ionic/vue';
-import { getAssetList, getAsset } from "@/services/main.service";
-import { defineComponent, ref } from 'vue';
-// import {
-// 	toastController,
-// 	loadingController,
-// } from '@ionic/vue';
+import { authJsonFetch, getAsset } from "@/services/main.service";
+import { defineComponent } from 'vue';
 
 export default defineComponent({
 	name: 'assets',
 	async setup() {
-		const assetArr = await getAssetList();
+		const assetArr = await authJsonFetch("/asset/list");
 		return { assetArr, getAsset };
 	},
 });
