@@ -1,0 +1,45 @@
+<template>
+	<ion-page>
+		<ion-header>
+			<ion-toolbar>
+				<ion-button router-link="/u/owner" slot="start" fill="clear">&lt;</ion-button>
+				<ion-title>Assets</ion-title>
+			</ion-toolbar>
+		</ion-header>
+		<ion-content :fullscreen="true">
+			<ion-card v-for="item in assetArr">
+				<ion-card-header>
+					<ion-card-subtitle>#{{ item.sno }}</ion-card-subtitle>
+					<ion-card-title >{{ item.fileName }}</ion-card-title>
+					<ion-card-subtitle>{{ item.tags }}</ion-card-subtitle>
+				</ion-card-header>
+				<ion-card-content>
+					Status: {{ item.status }}
+				</ion-card-content>
+				<ion-button fill="clear" :disabled="item.status != 'BLOCKCHAIN'"
+					@click="getAsset(item.assetId, item.fileName)">Download</ion-button>
+			</ion-card>
+
+		</ion-content>
+	</ion-page>
+</template>
+
+<script lang="ts">
+/* eslint-disable */
+// import { useIonRouter } from '@ionic/vue';
+import { getAssetList, getAsset } from "@/services/main.service";
+import { defineComponent, ref } from 'vue';
+// import {
+// 	toastController,
+// 	loadingController,
+// } from '@ionic/vue';
+
+export default defineComponent({
+	name: 'assets',
+	async setup() {
+		const assetArr = await getAssetList();
+		return { assetArr, getAsset };
+	},
+});
+</script>
+
