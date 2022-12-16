@@ -1,5 +1,7 @@
+import { IonButton, actionSheetController, alertController } from '@ionic/vue';
 import { authHeader } from "@/_helpers/authHeader";
 import { handleResponse } from "@/_helpers/handleResponse";
+import {ChainResult} from "@/interfaces/chainResult";
 
 function downloadBlob(blobData: Blob, fileName: string) {
 	var objURL = window.URL.createObjectURL(blobData);
@@ -34,4 +36,41 @@ export async function authJsonFetch(query: string, method: string = "GET") {
 	console.log("authJsonFetch:");
 	console.log(result);
 	return result;
+}
+
+export function getChainMessage(rtnObj: ChainResult) {
+	return (rtnObj.status == "PENDING") ?
+		"Pending blockchain update"
+		: JSON.stringify(rtnObj);
+}
+export async function presentAlert(header: string, message: string, subHeader?: string)  {
+	const alert = await alertController.create({
+		header: header,
+		subHeader: subHeader,
+		message: message,
+		buttons: ['OK'],
+	});
+
+	await alert.present();
+};
+
+export async function confirmOp(op:string) {
+	const actionSheet = await actionSheetController.create({
+		header: `Are you sure you want to ${op.toLowerCase()} this item?`,
+		buttons: [
+			{
+				text: op,
+				role: 'destructive',
+				data: { action: 'go', },
+			},
+			{
+				text: 'Cancel',
+				role: 'cancel',
+				data: { action: 'cancel', },
+			},
+		],
+	});
+	await actionSheet.present();
+	const res = await actionSheet.onDidDismiss();
+	return (res.data.action == "go");
 }

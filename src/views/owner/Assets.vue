@@ -7,7 +7,7 @@
 			</ion-toolbar>
 		</ion-header>
 		<ion-content :fullscreen="true">
-			<ion-card v-for="item in assetArr" :disabled="item.status != 'BLOCKCHAIN'">
+			<ion-card v-for="item in items" :disabled="item.status != 'BLOCKCHAIN'">
 				<ion-card-header>
 					<ion-card-subtitle>#{{ item.assetId }}</ion-card-subtitle>
 					<ion-card-title>{{ item.fileName }}</ion-card-title>
@@ -25,14 +25,14 @@
 </template>
 
 <script lang="ts">
-import { authJsonFetch, getAsset } from "@/services/main.service";
 import { defineComponent } from 'vue';
+import { authJsonFetch, getAsset } from "@/services/main.service";
 
 export default defineComponent({
-	name: 'assets',
+	name: 'Assets',
 	async setup() {
-		const assetArr = await authJsonFetch("/asset/list");
-		return { assetArr, getAsset };
+		const items = await authJsonFetch("/asset/list");
+		return { items, getAsset };
 	},
 });
 </script>
