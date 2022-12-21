@@ -70,11 +70,11 @@ export default defineComponent({
 		const users = await authJsonFetch("/user");
 		const states = await authJsonFetch("/state/list");
 		const assets = await authJsonFetch("/asset/list");
-		let userOptions = users.map(a => { return { "value": a.id, "text": `${a.firstName} ${a.lastName} (${a.emailAsId})` }; });
-		let stateOptions = states.map(a => { return { "value": a.bit, "text": a.state } });
+		let userOptions = users.map( (a:any) => { return { "value": a.id, "text": `${a.firstName} ${a.lastName} (${a.emailAsId})` }; });
+		let stateOptions = states.map((a:any) => { return { "value": a.bit, "text": a.state } });
 		console.log(assets);
-		let assetOptions = assets.filter(a => a.assetId > 0).
-			map(a => {
+		let assetOptions = assets.filter((a:any) => a.assetId > 0).
+			map((a:any) => {
 				return { "value": a.assetId, "text": a.fileName }
 		});
 		console.log(assetOptions);

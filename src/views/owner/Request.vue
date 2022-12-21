@@ -57,8 +57,8 @@ export default defineComponent({
 
 		const users = await authJsonFetch("/user");
 		const states = await authJsonFetch("/state/list");
-		let userOptions = users.map(a => { return { "value": a.id, "text": `${a.firstName} ${a.lastName} (${a.emailAsId})` }; });
-		let stateOptions = states.map(a => { return { "value": a.bit, "text": a.state } });
+		let userOptions = users.map((a:any) => { return { "value": a.id, "text": `${a.firstName} ${a.lastName} (${a.emailAsId})` }; });
+		let stateOptions = states.map((a:any) => { return { "value": a.bit, "text": a.state } });
 
 		const pickAnnouncer = async () => {
 			announcerOption = await getPickerInput(userOptions);
