@@ -44,7 +44,7 @@ export default defineComponent({
       if (!(await confirmOp("Delete"))) return;
       const rtnObj = await authJsonFetch(`/view/${id}`, "DELETE");
       const msg = getChainMessage(rtnObj);
-      presentAlert("Deletion submitted", msg);
+      await presentAlert("Deletion submitted", msg);
       await loadItems();
     };
 

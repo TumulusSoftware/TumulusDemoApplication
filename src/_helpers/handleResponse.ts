@@ -1,7 +1,7 @@
 import { HttpResponse } from "@capacitor/core";
 
 export function handleResponse(response:Response) {
-  console.log("response = ", response);
+  // console.log("response = ", response);
 
   return response.text().then((text:string) => {
     const data = text && JSON.parse(text);
