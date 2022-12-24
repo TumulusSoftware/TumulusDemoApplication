@@ -24,7 +24,7 @@ import './theme/variables.css';
 
 import { IonicVue, IonButton, IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
 	IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,
-	IonInput, IonItem, IonLabel, IonList,
+	IonInput, IonItem, IonLabel, IonList, IonIcon, IonNote
 } from '@ionic/vue';
 const app = createApp(App) .use(IonicVue) .use(router);
 app.component('ion-content'       , IonContent      );
@@ -42,6 +42,8 @@ app.component('ion-card-content'  , IonCardContent  );
 app.component('ion-card-header'   , IonCardHeader   );
 app.component('ion-card-subtitle' , IonCardSubtitle );
 app.component('ion-card-title'    , IonCardTitle    );
+app.component('ion-icon'          , IonIcon  );
+app.component('ion-note'  , IonNote  );
 /*
 app.component('ion-'  , Ion  );
 app.component('ion-'  , Ion  );

@@ -29,13 +29,13 @@
 
 
 					<ion-item>
-						<ion-button type="submit" >Submit</ion-button>
+						<ion-button type="submit">Submit</ion-button>
 					</ion-item>
 
-					<ion-item>
-						<ion-label slot="start">Already have an account?</ion-label>
-						<ion-button slot="" router-link="/start">Sign In</ion-button>
-					</ion-item>
+					<ion-label>
+						Already have an account?
+					</ion-label>
+					<ion-button fill="clear" router-link="/user/signin">Sign In</ion-button>
 				</ion-list>
 			</form>
 
@@ -49,26 +49,13 @@ import { useIonRouter } from '@ionic/vue';
 import { register } from "@/services/user.service";
 import { defineComponent, ref } from 'vue';
 import {
-  toastController,
-  loadingController,
+	toastController,
+	loadingController,
 } from '@ionic/vue';
 import { User } from '@/interfaces/user';
-// import { mapState, mapActions } from "vuex";
-// import { Form, Field, ErrorMessage, defineRule } from "vee-validate";
-// import { required, email, confirmed, min } from '@vee-validate/rules';
-
-// defineRule('min', min);
-// defineRule('required', required);
-// defineRule('email', email);
-// defineRule('confirmed', confirmed);
 
 export default defineComponent({
-	name: 'Tab1Page',
-	// components: {
-	// 	Form,
-	// 	Field,
-	// 	ErrorMessage,
-	// },
+	name: 'SignUp',
 	setup() {
 		const ionRouter = useIonRouter();
 		const email = ref('');
@@ -80,7 +67,7 @@ export default defineComponent({
 			const toast = await toastController.create({ duration: 5000 });
 			try {
 				await loader.present();
-				const user:User = {
+				const user: User = {
 					emailAsId: email.value,
 					firstName: firstName.value,
 					lastName: lastName.value,
@@ -96,7 +83,7 @@ export default defineComponent({
 				await loader.dismiss();
 			}
 		};
-		return { handleSubmit, email, firstName, password, lastName};
+		return { handleSubmit, email, firstName, password, lastName };
 	},
 });
 </script>

@@ -33,7 +33,7 @@ const routes: Array<RouteRecordRaw> = [
 			},
 			{
 				path: 'owner',
-				component: () => import('@/views/owner/OwnerHome.vue')
+				component: () => import('@/views/OwnerHome.vue')
 			},
 			{ path: 'owner/assets'        , component: () => import('@/views/owner/Assets.vue'        ) },
 			{ path: 'owner/agreements'    , component: () => import('@/views/owner/Agreements.vue'    ) },
@@ -42,15 +42,14 @@ const routes: Array<RouteRecordRaw> = [
 			{ path: 'owner/request'       , component: () => import('@/views/owner/Request.vue'       ) },
 			{ path: 'owner/states'        , component: () => import('@/views/owner/States.vue'        ) },
 			{ path: 'owner/upload'        , component: () => import('@/views/owner/Upload.vue'        ) },
-
 			{
-				path: 'tab2',
-				component: () => import('@/views/Tab2Page.vue')
+				path: 'announcer',
+				component: () => import('@/views/AnnouncerHome.vue')
 			},
 			{
-				path: 'tab3',
-				component: () => import('@/views/Tab3Page.vue')
-			}
+				path: 'viewer',
+				component: () => import('@/views/ViewerHome.vue')
+			},
 		]
 	}
 ]

@@ -1,11 +1,6 @@
 <template>
 	<ion-page>
-		<ion-header>
-			<ion-toolbar>
-				<ion-button router-link="/u/owner" slot="start" fill="clear">&lt;</ion-button>
-				<ion-title>Agreements</ion-title>
-			</ion-toolbar>
-		</ion-header>
+		<UserHeader title="Agreements"/>
 		<ion-content :fullscreen="true">
 			<ion-card v-for="item in items" :key="item.agrmId">
 				<ion-card-header>
@@ -20,7 +15,9 @@
 				</ion-card-content>
 				<ion-button fill="clear" @click="doDelete(item.agrmId)">DELETE</ion-button>
 			</ion-card>
-
+			<ion-note v-if="!items.length">
+				No records for now.
+			</ion-note>
 		</ion-content>
 	</ion-page>
 </template>
@@ -28,9 +25,11 @@
 <script lang="ts">
 import { ref, defineComponent } from 'vue';
 import { confirmOp, authJsonFetch, getChainMessage, presentAlert } from "@/services/main.service";
+import UserHeader from '@/components/UserHeader.vue';
 
 export default defineComponent({
 	name: 'Agreements',
+	components: {UserHeader},
 	async setup() {
 		let items = ref([]);
 

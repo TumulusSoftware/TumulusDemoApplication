@@ -30,6 +30,28 @@ export async function getAsset(assetId: number, fileName: string) {
 		});
 }
 
+/**
+ * 
+ * @param query "/asset/upload"
+ * @param formData (new FormData()).append("assetFile", assetFile).append("tags", tags)
+ * @returns 
+ */
+export async function postFormData(query: string, formData: FormData) {
+	// var data = new FormData();
+	// data.append("assetFile", assetFile);
+	// data.append("tags", tags);
+
+	const requestInit = {
+		method: "POST",
+		headers: authHeader(),
+		body: formData,
+	} as RequestInit;
+
+	const result = await fetch(`${process.env.VUE_APP_API_BASE_URL}${query}`, requestInit)
+		.then(handleResponse);
+	return result;
+}
+
 export async function authJsonFetch(query: string, method: string = "GET", bodyObject?: any) {
 	const requestInit = {
 		method: method,
@@ -102,9 +124,6 @@ export async function getPickerInput(options: any) {
 			{
 				text: 'Confirm',
 				role: 'confirm',
-				handler: (value) => {
-					// window.alert(`You selected: ${value.picked.value}`);
-				},
 			},
 		],
 	});

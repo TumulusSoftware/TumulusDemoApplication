@@ -3,7 +3,6 @@
 		<ion-header>
 			<ion-toolbar>
 				<ion-title>Sign In</ion-title>
-				<ion-button router-link="/start">Home</ion-button>
 			</ion-toolbar>
 		</ion-header>
 		<ion-content :fullscreen="true">
@@ -22,6 +21,11 @@
 					</ion-item>
 
 				</ion-list>
+				<ion-label>
+						Don't have an account?
+					</ion-label>
+					<ion-button fill="clear" router-link="/user/signup">Sign Up</ion-button>
+
 			</form>
 		</ion-content>
 	</ion-page>

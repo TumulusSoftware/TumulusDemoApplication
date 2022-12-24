@@ -1,11 +1,6 @@
 <template>
 	<ion-page>
-		<ion-header>
-			<ion-toolbar>
-				<ion-button router-link="/u/owner" slot="start" fill="clear">&lt;</ion-button>
-				<ion-title>States</ion-title>
-			</ion-toolbar>
-		</ion-header>
+		<UserHeader title="States"/>
 		<ion-content :fullscreen="true">
 			<ion-card v-for="item in items" :key="item.bit">
 				<ion-card-header>
@@ -22,6 +17,9 @@
 				<ion-button fill="clear" @click="setThreshold(item.bit)">SET THRESHOLD</ion-button>
 				<ion-button fill="clear" @click="doDelete(item.bit)">RESET</ion-button>
 			</ion-card>
+			<ion-note v-if="!items.length">
+				No records for now.
+			</ion-note>
 
 		</ion-content>
 	</ion-page>
@@ -36,9 +34,11 @@ import {
 	presentAlert,
 	getAlertInputs
 } from "@/services/main.service";
+import UserHeader from '@/components/UserHeader.vue';
 
 export default defineComponent({
 	name: 'States',
+	components: {UserHeader},
 	async setup() {
 		let items = ref([]);
 

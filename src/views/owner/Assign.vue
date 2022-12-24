@@ -1,11 +1,6 @@
 <template>
 	<ion-page>
-		<ion-header>
-			<ion-toolbar>
-				<ion-button router-link="/u/owner" slot="start" fill="clear">&lt;</ion-button>
-				<ion-title>Assign Authorization on Asset</ion-title>
-			</ion-toolbar>
-		</ion-header>
+		<UserHeader title="Assign Authorization on Asset"/>
 		<ion-content :fullscreen="true">
 			<ion-item>
 				<ion-label>
@@ -54,9 +49,11 @@ import {
 	getChainMessage,
 	presentAlert,
 } from "@/services/main.service";
+import UserHeader from '@/components/UserHeader.vue';
 
 export default defineComponent({
 	name: 'States',
+	components: {UserHeader},
 	async setup() {
 		const ionRouter = useIonRouter();
 

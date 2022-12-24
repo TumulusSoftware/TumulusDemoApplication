@@ -1,11 +1,6 @@
 <template>
 	<ion-page>
-		<ion-header>
-			<ion-toolbar>
-				<ion-button router-link="/u/owner" slot="start" fill="clear">&lt;</ion-button>
-				<ion-title>Assets</ion-title>
-			</ion-toolbar>
-		</ion-header>
+		<UserHeader title="Assets"/>
 		<ion-content :fullscreen="true">
 			<ion-card v-for="item in items" :disabled="item.status != 'BLOCKCHAIN'">
 				<ion-card-header>
@@ -19,6 +14,9 @@
 				<ion-button fill="clear" :disabled="item.status != 'BLOCKCHAIN'"
 					@click="getAsset(item.assetId, item.fileName)">Download</ion-button>
 			</ion-card>
+			<ion-note v-if="!items.length">
+				No records for now.
+			</ion-note>
 
 		</ion-content>
 	</ion-page>
@@ -27,9 +25,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { authJsonFetch, getAsset } from "@/services/main.service";
+import UserHeader from '@/components/UserHeader.vue';
 
 export default defineComponent({
 	name: 'Assets',
+	components: {UserHeader},
 	async setup() {
 		const items = await authJsonFetch("/asset/list");
 		return { items, getAsset };

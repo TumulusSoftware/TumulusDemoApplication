@@ -10,12 +10,12 @@
 					<ion-label>Owner</ion-label>
 				</ion-tab-button>
 
-				<ion-tab-button tab="tab2" href="/u/tab2">
+				<ion-tab-button tab="tab2" href="/u/announcer">
 					<ion-icon :icon="ellipse" />
 					<ion-label>Announcer</ion-label>
 				</ion-tab-button>
 
-				<ion-tab-button tab="tab3" href="/u/tab3">
+				<ion-tab-button tab="tab3" href="/u/viewer">
 					<ion-icon :icon="square" />
 					<ion-label>Viewer</ion-label>
 				</ion-tab-button>

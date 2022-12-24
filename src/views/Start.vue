@@ -11,10 +11,12 @@
 					<ion-title size="large">Start</ion-title>
 				</ion-toolbar>
 			</ion-header>
-			<ion-button router-link="/user/signIn">Sign In</ion-button>
-			<ion-button router-link="/user/signUp">Sign Up</ion-button>
-
-			<ExploreContainer name="Start page" />
+			<ion-item>
+				<ion-button router-link="/user/signIn">Sign In</ion-button>
+			</ion-item>
+			<ion-item>
+				<ion-button router-link="/user/signUp">Sign Up</ion-button>
+			</ion-item>
 		</ion-content>
 	</ion-page>
 </template>
