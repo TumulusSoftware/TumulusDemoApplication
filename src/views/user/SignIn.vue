@@ -19,20 +19,17 @@
 					<ion-item>
 						<ion-button type="submit">Submit</ion-button>
 					</ion-item>
-
 				</ion-list>
 				<ion-label>
-						Don't have an account?
-					</ion-label>
-					<ion-button fill="clear" router-link="/user/signup">Sign Up</ion-button>
-
+					Don't have an account?
+				</ion-label>
+				<ion-button fill="clear" router-link="/user/signup">Sign Up</ion-button>
 			</form>
 		</ion-content>
 	</ion-page>
 </template>
 
 <script lang="ts">
-/* eslint-disable */
 import { useIonRouter } from '@ionic/vue';
 import { login } from "@/services/user.service";
 import { defineComponent, ref } from 'vue';
@@ -52,7 +49,6 @@ export default defineComponent({
 			const toast = await toastController.create({ duration: 5000 });
 			try {
 				await loader.present();
-				// const { user, error } = await login(email.value, password.value);
 				const user = await login(email.value, password.value);
 				if (user && user.status == "NEW") {
 					ionRouter.push("/user/verify");

@@ -1,7 +1,8 @@
-import { createApp } from 'vue'
+import { createApp, defineComponent } from 'vue'
 import App from './App.vue'
 import router from '@/router';
 import { useRouter } from 'vue-router';
+import UserHeader from '@/components/UserHeader.vue';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -42,26 +43,22 @@ app.component('ion-card-content'  , IonCardContent  );
 app.component('ion-card-header'   , IonCardHeader   );
 app.component('ion-card-subtitle' , IonCardSubtitle );
 app.component('ion-card-title'    , IonCardTitle    );
-app.component('ion-icon'          , IonIcon  );
-app.component('ion-note'  , IonNote  );
+app.component('ion-icon'          , IonIcon         );
+app.component('ion-note'          , IonNote         );
+app.component('UserHeader'        , UserHeader      );
 /*
 app.component('ion-'  , Ion  );
-app.component('ion-'  , Ion  );
 */
-
-
 
 router.isReady().then(() => {
 	app.mount('#app');
 });
 
-import { defineComponent } from 'vue';
 export default defineComponent({
 	setup() {
 		const router = useRouter();
 		return { router };
 	},
-
 });
 
 

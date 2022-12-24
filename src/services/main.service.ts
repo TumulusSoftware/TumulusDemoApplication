@@ -1,5 +1,4 @@
 import {
-	IonButton,
 	pickerController,
 	actionSheetController,
 	alertController
@@ -30,6 +29,19 @@ export async function getAsset(assetId: number, fileName: string) {
 		});
 }
 
+export async function viewAsset(authId: number, fileName: string) {
+	const requestInit = {
+		method: "GET",
+		headers: authHeader(),
+	} as RequestInit;
+	await fetch(`${process.env.VUE_APP_API_BASE_URL}/view/${authId}`, requestInit)
+		.then((response: Response) => {
+			response.blob().then((blobData) => {
+				downloadBlob(blobData, fileName);
+			});
+		});
+}
+
 /**
  * 
  * @param query "/asset/upload"
@@ -37,10 +49,6 @@ export async function getAsset(assetId: number, fileName: string) {
  * @returns 
  */
 export async function postFormData(query: string, formData: FormData) {
-	// var data = new FormData();
-	// data.append("assetFile", assetFile);
-	// data.append("tags", tags);
-
 	const requestInit = {
 		method: "POST",
 		headers: authHeader(),
@@ -62,9 +70,6 @@ export async function authJsonFetch(query: string, method: string = "GET", bodyO
 
 	const result = await fetch(`${process.env.VUE_APP_API_BASE_URL}${query}`, requestInit)
 		.then(handleResponse);
-
-	// console.log("authJsonFetch:");
-	// console.log(result);
 	return result;
 }
 
@@ -116,20 +121,10 @@ export async function getAlertInputs(
 export async function getPickerInput(options: any) {
 	const picker = await pickerController.create({
 		columns: [{ name: "picked", options: options }],
-		buttons: [
-			{
-				text: 'Cancel',
-				role: 'cancel',
-			},
-			{
-				text: 'Confirm',
-				role: 'confirm',
-			},
-		],
+		buttons: [{ text: 'Cancel', role: 'cancel', }, { text: 'Confirm', role: 'confirm', },],
 	});
 	await picker.present();
 	const eventDetails = await picker.onDidDismiss() as any;
-	// console.log(eventDetails);
 	if (eventDetails.role != 'confirm')
 		return null;
 	else

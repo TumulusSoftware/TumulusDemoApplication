@@ -36,11 +36,8 @@ import {
 	getChainMessage,
 	presentAlert,
 } from "@/services/main.service";
-import UserHeader from '@/components/UserHeader.vue';
 
 export default defineComponent({
-	name: 'States',
-	components: {UserHeader},
 	async setup() {
 		const assetFile = ref(<File><unknown>null);
 		const tags = ref('');

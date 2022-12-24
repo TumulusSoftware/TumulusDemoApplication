@@ -44,18 +44,16 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable */
-import { useIonRouter } from '@ionic/vue';
 import { register } from "@/services/user.service";
 import { defineComponent, ref } from 'vue';
 import {
+	useIonRouter,
 	toastController,
 	loadingController,
 } from '@ionic/vue';
 import { User } from '@/interfaces/user';
 
 export default defineComponent({
-	name: 'SignUp',
 	setup() {
 		const ionRouter = useIonRouter();
 		const email = ref('');

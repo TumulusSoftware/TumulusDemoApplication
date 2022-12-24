@@ -3,11 +3,14 @@
 		<ion-header>
 			<ion-toolbar>
 				<ion-title>Verify</ion-title>
-				<ion-button router-link="/start">Home</ion-button>
 			</ion-toolbar>
 		</ion-header>
 		<ion-content :fullscreen="true">
 			<form @submit.prevent="handleSubmit">
+				<ion-note>
+					A verification code has been sent to you by email.
+					Please enter this code.
+				</ion-note>
 				<ion-list>
 					<ion-item>
 						<ion-label>Verification Code</ion-label>
@@ -16,7 +19,6 @@
 					<ion-item>
 						<ion-button type="submit">Submit</ion-button>
 					</ion-item>
-
 				</ion-list>
 			</form>
 		</ion-content>
@@ -24,7 +26,6 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable */
 import { useIonRouter } from '@ionic/vue';
 import { verify } from "@/services/user.service";
 import { defineComponent, ref } from 'vue';

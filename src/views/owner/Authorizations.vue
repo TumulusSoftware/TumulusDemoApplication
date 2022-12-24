@@ -30,13 +30,11 @@
 <script lang="ts">
 import { ref, defineComponent } from 'vue';
 import { confirmOp, authJsonFetch, getChainMessage, presentAlert } from "@/services/main.service";
-import UserHeader from '@/components/UserHeader.vue';
 
 export default defineComponent({
 	name: 'Authorizations',
-	components: { UserHeader },
 	async setup() {
-		let items = ref([]);
+		let items = ref(<any>[]);
 
 		const loadItems = async () => items.value = await authJsonFetch("/view/list");
 

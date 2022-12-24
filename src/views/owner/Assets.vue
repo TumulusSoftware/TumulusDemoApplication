@@ -25,11 +25,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { authJsonFetch, getAsset } from "@/services/main.service";
-import UserHeader from '@/components/UserHeader.vue';
 
 export default defineComponent({
-	name: 'Assets',
-	components: {UserHeader},
 	async setup() {
 		const items = await authJsonFetch("/asset/list");
 		return { items, getAsset };

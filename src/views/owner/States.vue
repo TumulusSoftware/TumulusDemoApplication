@@ -34,13 +34,10 @@ import {
 	presentAlert,
 	getAlertInputs
 } from "@/services/main.service";
-import UserHeader from '@/components/UserHeader.vue';
 
 export default defineComponent({
-	name: 'States',
-	components: {UserHeader},
 	async setup() {
-		let items = ref([]);
+		let items = ref(<any>[]);
 
 		const loadItems = async () => items.value = await authJsonFetch("/state/list");
 
