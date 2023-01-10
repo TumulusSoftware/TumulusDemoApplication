@@ -34,3 +34,7 @@ npm-debug.log*
 /.env
 
 .vs/slnx.sqlite
+
+.vs/TumulusDemoApplication/v15/.suo
+
+.vs/config/applicationhost.config
