@@ -75,7 +75,7 @@ Like most open source projects, we use Pull Requests (PRs) to track code changes
 
 ### Forking
 
-1. Fork the [hedera-hts-demo](https://github.com/TumulusSoftware/TumulusDemoApplication) repo
+1. Fork the [TumulusDemoApplication](https://github.com/TumulusSoftware/TumulusDemoApplication) repo
 
 Go to the [project](https://github.com/TumulusSoftware/TumulusDemoApplication) page then hit the `Fork`
 button to fork your own copy of the repository to your GitHub account.
@@ -86,7 +86,7 @@ $ git clone https://github.com/$your_github_account/TumulusDemoApplication.git
 ```
 3. Add an `upstream` remote to keep your fork in sync with the main repo.
 ```sh
-$ cd hedera-hts-demo
+$ cd TumulusDemoApplication
 $ git remote add upstream https://github.com/TumulusSoftware/TumulusDemoApplication.git
 $ git remote -v
 
