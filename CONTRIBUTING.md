@@ -178,8 +178,7 @@ Now that you've got your [forked](#forking) branch and [signed off](#sign-off) a
       have requested a feature. In the code review, a message can be added, as well as `LGTM` if the PR is
       good to merge. It’s also possible to add comments to specific lines in a file, for giving context
       to the comment.
-    - PR owner should try to be responsive to comments by answering questions or changing code. If the
-      owner is unsure of any comment, reach out to the person who added the comment in Discord. Once all comments
+    - PR owner should try to be responsive to comments by answering questions or changing code. Once all comments
       have been addressed, the PR is ready to be merged.
 4. **Merge or Close**
     - PRs should stay open until merged or be closed if the submitter has not been responsive for more than 30 days.
