@@ -1,18 +1,21 @@
 # Tumulus Demo Application
 
-This demo is a user interface written in Javascript (Vue.js v3) to illustrate the use of the Tumulus API Service.
+This demo is a user interface written in JavaScript (Vue.js v3) to illustrate the use of the Tumulus API service.
 
 The demo application allows you to:
+
 * Create New Accounts
+* Login
 * Upload New Asset Files
+* Download Existing Asset Files
 * List Existing Asset Files
 * List Existing Agreements
 * Create & Request New Agreements
 * List Existing Authorizations
-* Assign Authorizations To Assets
+* Assign Authorizations to Assets
 * List Owner States
 
-_Note: This is purely for demonstration purposes and should not be used as-is in production_
+__Note:__ _This is purely for demonstration purposes and should not be used as-is in production._
 
 ## Prerequisites
 
@@ -23,80 +26,89 @@ _Note: This is purely for demonstration purposes and should not be used as-is in
 
 ## Environment files
 
-The project requires an environment file to be setup. 
+The project requires an environment file to be set up. 
 
 First, copy `.env.example` to `.env`
 
-Edit `.env` and setup the following variables
+Edit `.env` and set up the following variables
 
 * VUE_APP_API_BASE_URL=https://yourapiurl.com 
 
 ## I just want to run it quickly
 
-1. Clone Repo
+1. Clone the repo
 
 ```https://github.com/TumulusSoftware/TumulusDemoApplication.git```
 
-2. Build Application
+2. Build the application
 
 ```npm build```
 
-3. Upload to Server
+3. Upload the contents of the dist folder to the server
 
-4. Install required packages on the server
+4. Install the required packages on the server
 
 ```npm update```
 
-5. Run the service
+5. Run the Ionic service
 
 ```ionic serve```
 
 Application is now available: http://yourhost/
 
-## Using the UI
+## How it Works
 
-The application requires you to create your own new account and once verified you are able to access the application.
+Tumulus is an open-source API that makes it easy for web2 developers to deploy web3 data storage and sharing technologies.
 
-The default role of the logged in user is "Owner"
+Tumulus empowers users to store and share their important data securely via IPFS and smart contracts. While tumulus can support a myriad of distinct use cases, one of its more notable capabilities is its ability to enable posthumous transactions, i.e., actions you want to ensure will happen after your death. In fact, tumulus was conceived to address the need to be able to control the sharing of important personal files after death, since we all want to lighten the burden of those who survive us as they wind down our affairs after we are gone.
 
-As the Owner there are several operations that can be performed as per the list above.
+The demo application included here can be used to implement the basic use case of a posthumous transaction. However, we envision countless other uses for the tumulus API and encourage everyone to use the code to address these needs.
 
-If correctly configured, the application will interact with your running Tumulus API to encrypt and store your asset files to IPFS securely.
+## Using the Demo Application
+
+The application requires you to create your own new account and once verified you will be able to access the application.
+
+The default role of the logged in user is "Owner". As the Owner there are several operations that can be performed. If correctly configured, the application will interact with your running Tumulus API to encrypt and store your asset files to IPFS securely.
 
 Once your account is created, you can:
-* Upload asset files securely
+* Upload and download asset files securely
 * List your current asset files
 * Request an agreement
 * List and assign authorizations
-Note: These operations involve blockchain activity and can take an unpredictable amount of time to complete. This application should be used on Testnets only.
 
-## Owners
+__Note:__ _These operations involve blockchain activity and can take an unpredictable amount of time to complete. This application should be used on Testnets only._
+
+## Roles
+
+### Owners
 
 Owners are individuals who own a Tumulus account and use it to upload asset files, create agreements and authorizations with respect to the uploaded asset files.
 
-## Announcers
+### Announcers
 
 Announcers are individuals who have an agreement with the owner to "announce" a particular state of the owner.
 
-## Viewers
+### Viewers
+
+## Objects
 
 Viewers are individuals who are granted access to certain asset files uploaded by the owner under specific conditions of the owner state.
 
-## Agreements
+### Agreements
 
 Agreements are between Owners and Announcers whereby the announcer agrees to confirm specific states of the owner when required.
 
-## Authorizations
+### Authorizations
 
 Authorizations are access permissions granted by the owner to the viewer for specific asset files under specific conditions of state.
 
-## Owner States
+### Owner States
 
-Owner States represent different states of the owner. The possible owner states are configured inside the Tumulus API.
+Owner States represent different states of the owner. The possible owner states are configured inside the Tumulus API. Examples of owner states could include "deceased", "incapacitated", "missing".
 
 ## Contributing
 
-Contributions are welcome. Please see the [contributing](CONTRIBUTING.md) guide to see how you can get involved.
+Contributions are welcome. Please see the [Contributing Guidelines](CONTRIBUTING.md) guide to see how you can get involved.
 
 ## Code of Conduct
 
