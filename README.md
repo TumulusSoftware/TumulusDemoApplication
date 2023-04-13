@@ -36,25 +36,24 @@ Edit `.env` and set up the following variables
 
 ## I just want to run it quickly
 
-1. Clone the repo
+The following instructions are for a Linux Desktop environment.
+You may need to make adjustment accordingly.
 
-```https://github.com/TumulusSoftware/TumulusDemoApplication.git```
+1. Install the project locally
 
-2. Build the application
+```
+git clone https://github.com/TumulusSoftware/TumulusDemoApplication.git
+cd TumulusDemoApplication
+npm update
+```
 
-```npm build```
-
-3. Upload the contents of the dist folder to the server
-
-4. Install the required packages on the server
-
-```npm update```
-
-5. Run the Ionic service
+2. Start the development server
 
 ```ionic serve```
 
-Application is now available: http://yourhost/
+The SPA is available at http://localhost:8100
+
+The web browser may be launched automatically.
 
 ## How it Works
 
